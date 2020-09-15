@@ -1,7 +1,7 @@
 import logging
 
 _program = "game-dump"
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 logging.basicConfig(
     level=logging.INFO,
