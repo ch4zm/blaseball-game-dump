@@ -1,0 +1,19 @@
+# v1.0
+
+* Automated release process
+* Use blaseball-core-game-data
+
+# v0.5
+
+* Add markdown table format option
+
+# v0.4
+
+* Rename source code directory from cli to streak_finder to avoid naming conflicts
+* Update table descriptions
+
+# v0.2
+
+* Initial release
+* Includes seasons 1-5 in the game data
+
