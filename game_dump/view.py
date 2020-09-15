@@ -64,6 +64,7 @@ class View(object):
         print("="*40)
         print("Blaseball Game Event Log")
         print("Game ID: %s"%(self.game_id))
+        print("Season %d Day %d:"%(self.game_data['season']+1, self.game_data['day']+1))
         print("%s @ %s"%(
             self.game_data['awayTeamName'], 
             self.game_data['homeTeamName'],
