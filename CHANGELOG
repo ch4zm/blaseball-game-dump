@@ -2,6 +2,7 @@
 
 * Automated release process
 * Use blaseball-core-game-data
+* Print help if no args provided
 
 # v0.5
 
