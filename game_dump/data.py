@@ -24,7 +24,7 @@ class RawGameData(object):
 
     def __init__(self, game_id):
         url = self.ENDPOINT + game_id
-        logger.info(f"Fetching raw game data from url: {url}")
+        logger.debug(f"Fetching raw game data from url: {url}")
         resp = requests.get(url)
         if resp.status_code != 200:
             raise ApiError()
@@ -71,7 +71,7 @@ class RawEventData(object):
     ENDPOINT = "https://api.blaseball-reference.com/v1/events?gameId="
     def __init__(self, game_id):
         url = self.ENDPOINT + game_id
-        logger.info(f"Fetching raw event data from url: {url}")
+        logger.debug(f"Fetching raw event data from url: {url}")
         resp = requests.get(url)
         if resp.status_code != 200:
             raise ApiError()

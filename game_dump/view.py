@@ -6,7 +6,7 @@ from .data import RawGameData, RawEventData, NoMatchingGames, ApiError
 logger = logging.getLogger()
 
 
-class View(object):
+class BaseView(object):
     """
     The BaseView object provides base functionality for all Views.
     This class stores a set of game IDs, and displays game summary
@@ -60,6 +60,27 @@ class View(object):
             print(msg)
             exit(1)
 
+
+class JsonView(BaseView):
+    def show(self):
+        data = {}
+        data['game_info'] = {
+            "Game ID": self.game_id,
+            "Season": self.game_data['season']+1,
+            "Day": self.game_data['day']+1,
+            "Home Team": self.game_data['homeTeamName'],
+            "Away Team": self.game_data['awayTeamName'],
+            "Home Score": self.game_data['homeScore'],
+            "Away Score": self.game_data['awayScore'],
+        }
+        data['game_dump'] = []
+        for event in self.ed.events():
+            data['game_dump'].append(event)
+
+        print(json.dumps(data, indent=4))
+
+
+class TextView(BaseView):
     def show(self):
         print("="*40)
         print("Blaseball Game Event Log")
@@ -79,3 +100,4 @@ class View(object):
         for event in self.ed.events():
             print(json.dumps(event, indent=4))
             print("-"*40)
+

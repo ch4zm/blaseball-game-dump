@@ -2,7 +2,7 @@ import sys
 import os
 import json
 import argparse
-from .view import View
+from .view import JsonView, TextView
 from .util import CaptureStdout
 
 def main(sysargs = sys.argv[1:]):
@@ -18,6 +18,17 @@ def main(sysargs = sys.argv[1:]):
 
     p.add_argument('game_id',
                    help='Specify the game ID of the game to summarize (repeat flag to specify multiple game IDs)')
+
+    # View format
+    g = p.add_mutually_exclusive_group()
+    g.add_argument('--text',
+                   action='store_true',
+                   default=False,
+                   help='Output game dumps in plain text format')
+    g.add_argument('--json',
+                   action='store_true',
+                   default=False,
+                   help='Output game dumps in JSON format')
 
     # -----
 
@@ -39,8 +50,16 @@ def main(sysargs = sys.argv[1:]):
     # Parse arguments
     options = p.parse_args(sysargs)
 
-    v = View(options)
-    v.show()
+    # If the user did not specify output format, use text
+    if (not options.text) and (not options.json):
+        options.json = True
+
+    if options.json:
+        v = JsonView(options)
+        v.show()
+    elif options.text:
+        v = TextView(options)
+        v.show()
 
 
 def game_dump(sysargs):
