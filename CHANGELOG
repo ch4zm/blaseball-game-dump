@@ -1,3 +1,7 @@
+# v0.4
+
+* modify output format - json or text
+
 # v0.3
 
 * add header, handle no args case
