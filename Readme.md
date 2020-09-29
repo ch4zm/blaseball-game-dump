@@ -4,7 +4,9 @@
 
 ## Installing
 
-```
+Install using pip:
+
+```text
 pip install blaseball-game-dump
 ```
 
@@ -14,16 +16,46 @@ The command line utility that is installed is called `game-dump`.
 
 Provide the game ID as the first and only argument:
 
-```
+```text
 game-dump 3ae0ced8-a816-488a-b0be-0491d20a28d9
 ```
 
-## Using game-finder
+## Python API
 
-This tool works best with the `game-finder` command line utility, which lets you
-find game IDs based on filtering by various criteria:
+If you prefer to use `game-dump` from Python instead of the command line,
+you can use the Python API by importing and calling
+the `game_dump()` command, passing in a list of
+string containing whatever flags you would use on
+the command line:
 
+```python
+from game_dump import game_dump
+
+game_id = "fca6f5d2-e645-4354-985e-3080983eecb4"
+output = game_dump([game_id, "--text"])
 ```
+
+The function call returns the output that would be printed
+to the console if the tool were run from the command line,
+as a string. You can obtain the results as JSON by using 
+`json.loads()` to load JSON from a string:
+
+```python
+from game_dump import game_dump
+import json
+
+game_id = "fca6f5d2-e645-4354-985e-3080983eecb4"
+output = game_dump([game_id, "--json"])
+```
+
+
+## Using game-dump with game-finder
+
+This tool works best with the [`game-finder`](https://github.com/ch4zm/blaseball-game-finder)
+command line utility, which lets you find game IDs and filter
+by various criteria:
+
+```text
 $ game-finder --season 4 --day 99 --team Tacos
 3ae0ced8-a816-488a-b0be-0491d20a28d9
 
@@ -110,3 +142,4 @@ Tacos 1 - 2 Flowers
 ```
 
 See [blaseball-game-finder](https://github.com/ch4zm/blaseball-game-finder).
+
