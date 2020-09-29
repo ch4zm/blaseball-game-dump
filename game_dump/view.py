@@ -98,6 +98,7 @@ class TextView(BaseView):
         ))
         print("-"*40)
         for event in self.ed.events():
-            print(json.dumps(event, indent=4))
+            print("\n".join([f"{key}: {value}" for key, value in event.items()]))
+            #print(json.dumps(event, indent=4))
             print("-"*40)
 
