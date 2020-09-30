@@ -29,7 +29,7 @@ string containing whatever flags you would use on
 the command line:
 
 ```python
-from game_dump import game_dump
+from game_dump.command import game_dump
 
 game_id = "fca6f5d2-e645-4354-985e-3080983eecb4"
 output = game_dump([game_id, "--text"])
@@ -41,7 +41,7 @@ as a string. You can obtain the results as JSON by using
 `json.loads()` to load JSON from a string:
 
 ```python
-from game_dump import game_dump
+from game_dump.command import game_dump
 import json
 
 game_id = "fca6f5d2-e645-4354-985e-3080983eecb4"
