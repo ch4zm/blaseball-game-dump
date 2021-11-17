@@ -7,7 +7,7 @@
 Install using pip:
 
 ```text
-pip install blaseball-game-dump
+pip install git+https://github.com/ch4zm/blaseball-game-dump.git#egg=game_dump
 ```
 
 ## Usage
