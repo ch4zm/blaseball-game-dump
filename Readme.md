@@ -7,7 +7,11 @@
 Install using pip:
 
 ```text
+# required:
 pip install git+https://github.com/ch4zm/blaseball-core-game-data.git#egg=blaseball_core_game_data
+# optional:
+pip install git+https://github.com/ch4zm/blaseball-game-finder.git#egg=blaseball_game_finder
+# install:
 pip install git+https://github.com/ch4zm/blaseball-game-dump.git#egg=blaseball_game_dump
 ```
 
